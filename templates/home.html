@@ -15,10 +15,18 @@
     </h2>
     <p class="lead">
       This is a personal blog site about the news regarding the premier league standings, player stats, upcoming matches and current insight about the games taking place and player performances.
-    </p
+    </p>
+    <h2 class="text-center mt-2 mb-4">
+      Table Points
+    </h2>
+    <div>
+      {% for team in teams %}
+      {% include 'teaminfo.html' %}
+      {% endfor %}
+    </div>
   </div>
-  <div style= "text-align:center;">
-  <button class="btn btn-primary">Some button</button>
+  <div class="text-center mt-2 mb-4">
+  <button class="btn btn-primary">Home</button>
   </div>
   </body>
 </html>
