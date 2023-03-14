@@ -6,6 +6,13 @@ connect_args={
             "ssl_ca": "/etc/ssl/cert.pem"}
 })
 
-with engine.connect() as conn:
-  result = conn.execute(text("select * from teams"))
-  print(result.all())
+
+def load_teams_from_db():
+  with engine.connect() as conn:
+    result = conn.execute(text("select * from teams"))
+    teams = []
+    for row in result.all():
+      teams.append({'id':row.id, 'Name':row.team_name, 'Points':row.points})
+    return teams
+
+
