@@ -18,4 +18,15 @@ def load_teams_from_db():
       teams.append({'id':row.id, 'Name':row.team_name, 'Points':row.points})
     return teams
 
+def load_team_from_db(id):
+  with engine.connect() as conn:
+    result = conn.execute(
+      text("SELECT * FROM teams WHERE id = {}".format(id)),
+    )
+    rows = result.all()
+    if len(rows) == 0:
+      return None
+    else:
+      return {'id':rows[0].id, 'Name':rows[0].team_name, 'Points':rows[0].points}
+
 

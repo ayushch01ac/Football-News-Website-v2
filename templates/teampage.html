@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{team['Name']}} - Team Info</title>
+    {% include 'bootstrap.html' %}
+  </head>
+  <body>
+    {% include 'nav.html' %}
+    <div class="container">
+      <h1 class="text-center mt-2 mb-4">
+        Team Info
+      </h1>
+      <h3 class="mb-2">{{team['Name']}}</h3>
+      <p class="lead mt-0">{{team['Points']}}</p>
+    {% include 'footer.html' %}
+  </body>
+</html>
